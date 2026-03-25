@@ -287,3 +287,91 @@ footer {
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
 @import "svg-icons";
+
+/* 1. 변수 설정: 색상 및 폰트 */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #0076df;
+  --code-bg: #f4f4f4;
+  --border-color: #eeeeee;
+  --max-width: 800px$;
+}
+
+/* 다크 모드 지원 (시스템 설정에 따름) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --link-color: #4daafc;
+    --code-bg: #2d2d2d;
+    --border-color: #333333;
+  }
+}
+
+/* 2. 기본 레이아웃 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: var(--max-width);
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+/* 3. 타이포그래피 */
+h1, h2, h3 {
+  line-height: 1.2;
+  margin-top: 2rem;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 4. 포스트 리스트 스타일 (Home) */
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-item {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* 5. 코드 블록 스타일 */
+code, pre {
+  background: var(--code-bg);
+  border-radius: 5px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+code {
+  padding: 0.2rem 0.4rem;
+}
